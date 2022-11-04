@@ -1,5 +1,4 @@
 # Program make a simple calculator
-from calculate import *
+from calculate import run
 
-start_print()
 run()

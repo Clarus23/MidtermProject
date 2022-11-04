@@ -17,6 +17,7 @@ def run():
     error_logger = logging.getLogger("error")
     set_logger(logger, error_logger)
 
+    start_print()
     while True:
         # take input from the user
         choice = input("Enter choice(1/2/3/4): ")
