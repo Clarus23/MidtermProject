@@ -2,6 +2,7 @@
 import logging
 from arithmetic_operation import *
 from set_logger import set_logger
+from quit import *
 
 print("Calculator started.")
 
@@ -27,15 +28,12 @@ while True:
         if choice == '1':
             print(num1, "+", num2, "=", add(num1, num2))
             logger.info(str(num1) + " + " + str(num2) + " = " + str(add(num1, num2)))
-
         elif choice == '2':
             print(num1, "-", num2, "=", subtract(num1, num2))
             logger.info(str(num1) + " - " + str(num2) + " = " + str(subtract(num1, num2)))
-
         elif choice == '3':
             print(num1, "*", num2, "=", multiply(num1, num2))
-            logger.info(str(num1) + " * " + str(num2) + " = " + str(multiply(num1, num2)))
-            
+            logger.info(str(num1) + " * " + str(num2) + " = " + str(multiply(num1, num2)))        
         elif choice =='4':
             if(num2 != 0):
                 print(num1, "/", num2, "=", divide(num1,num2))
@@ -43,34 +41,10 @@ while True:
             else:
                 print("[ERROR] divisor can't be 0")
                 error_logger.error("divisor can't be 0")
-            
 
-        # check if user wants another calculation
-        # break the while loop if answer is no
-        quit_calculate = False      #계산 loop를 종료하기 위한 flag
-        while(True):
-            next_calculation = input("Let's do next calculation? (yes/no): ")          
-            if next_calculation.lower() == "no":
-                quit_calculate = True
+        if quit_process():
+            if quit_doublecheck():
                 break
-            elif next_calculation.lower() == "yes":
-                quit_calculate = False
-                break
-            else: continue
-        
-        if quit_calculate:
-            flag=True
-            while(True): 
-                next_calculation = input("Are you sure? (yes/no): ")
-                if next_calculation.lower() == "no":
-                    flag=False
-                    break
-                elif next_calculation.lower() == "yes":
-                    flag=True
-                    break
-                else: continue
-            if flag: break
-
     else:
         print("Invalid Input")
         error_logger.warning(str(choice) + " is Invalid Input")
