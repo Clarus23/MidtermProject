@@ -1,0 +1,2 @@
+It's logs directory
+This directory is required.
