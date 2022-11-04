@@ -1,24 +1,7 @@
 # Program make a simple calculator
-from arithmetic_operation import *
-
-#계산 log를 남기기 위해
 import logging
-
-logger = logging.getLogger("calculate")
-logger.setLevel(logging.INFO)
-
-error_logger = logging.getLogger("error")
-
-formatter = logging.Formatter(u'%(asctime)s [%(levelname)8s] %(message)s')
-
-file_handler = logging.FileHandler('./logs/calculate.log')
-file_handler.setFormatter(formatter)
-
-error_file_handler = logging.FileHandler('./logs/error.log')
-error_file_handler.setFormatter(formatter)
-
-logger.addHandler(file_handler)
-error_logger.addHandler(error_file_handler)
+from arithmetic_operation import *
+from set_logger import set_logger
 
 print("Calculator started.")
 
@@ -28,6 +11,9 @@ print("2.Subtract")
 print("3.Multiply")
 print("4.Divide") 
 
+logger = logging.getLogger("calculate")
+error_logger = logging.getLogger("error")
+set_logger(logger, error_logger)
 
 while True:
     # take input from the user
