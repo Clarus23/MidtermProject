@@ -81,10 +81,10 @@ while True:
         quit_calculate = False      #계산 loop를 종료하기 위한 flag
         while(True):
             next_calculation = input("Let's do next calculation? (yes/no): ")          
-            if next_calculation == "no":
+            if next_calculation.lower() == "no":
                 quit_calculate = True
                 break
-            elif next_calculation == "yes":
+            elif next_calculation.lower() == "yes":
                 quit_calculate = False
                 break
             else:
