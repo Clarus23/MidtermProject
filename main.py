@@ -78,9 +78,29 @@ while True:
 
         # check if user wants another calculation
         # break the while loop if answer is no
-        next_calculation = input("Let's do next calculation? (yes/no): ")
-        if next_calculation == "no":
-            break
+        quit_calculate = False      #계산 loop를 종료하기 위한 flag
+        while(True):
+            next_calculation = input("Let's do next calculation? (yes/no): ")          
+            if next_calculation.lower() == "no":
+                quit_calculate = True
+                break
+            elif next_calculation.lower() == "yes":
+                quit_calculate = False
+                break
+            else: continue
+        
+        if quit_calculate:
+            flag=True
+            while(True): 
+                next_calculation = input("Are you sure? (yes/no): ")
+                if next_calculation.lower() == "no":
+                    flag=False
+                    break
+                elif next_calculation.lower() == "yes":
+                    flag=True
+                    break
+                else: continue
+            if flag: break
 
     else:
         print("Invalid Input")
