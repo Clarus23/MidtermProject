@@ -3,15 +3,21 @@
 #계산 log를 남기기 위해
 import logging
 
-logger = logging.getLogger()
+logger = logging.getLogger("calculate")
 logger.setLevel(logging.INFO)
+
+error_logger = logging.getLogger("error")
 
 formatter = logging.Formatter(u'%(asctime)s [%(levelname)8s] %(message)s')
 
-file_handler = logging.FileHandler('./logs/output.log')
+file_handler = logging.FileHandler('./logs/calculate.log')
 file_handler.setFormatter(formatter)
 
+error_file_handler = logging.FileHandler('./logs/error.log')
+error_file_handler.setFormatter(formatter)
+
 logger.addHandler(file_handler)
+error_logger.addHandler(error_file_handler)
 
 # This function adds two numbers
 def add(x, y):
@@ -73,6 +79,7 @@ while True:
 
     else:
         print("Invalid Input")
+        error_logger.warning(str(choice) + " is Invalid Input")
 
 
 
