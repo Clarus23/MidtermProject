@@ -34,7 +34,11 @@ def multiply(x, y):
 
 #Need to define divide function.
 def divide (x,y):
-    return x/y
+    if(y == 0):
+        print("[ERROR] divisor can't be 0")
+        error_logger.error("divisor can't be 0")
+    else:
+        return x/y
 
 print("Calculator started.")
 
@@ -68,7 +72,8 @@ while True:
             
         elif choice =='4':
             print(num1, "/", num2, "=", divide(num1,num2))
-            logger.info(str(num1) + " / " + str(num2) + " = " + str(divide(num1, num2)))
+            if(num2 != 0):
+                logger.info(str(num1) + " / " + str(num2) + " = " + str(divide(num1, num2)))
             
 
         # check if user wants another calculation
