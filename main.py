@@ -87,9 +87,20 @@ while True:
             elif next_calculation.lower() == "yes":
                 quit_calculate = False
                 break
-            else:
-                continue
-        if(quit_calculate): break
+            else: continue
+        
+        if quit_calculate:
+            flag=True
+            while(True): 
+                next_calculation = input("Are you sure? (yes/no): ")
+                if next_calculation.lower() == "no":
+                    flag=False
+                    break
+                elif next_calculation.lower() == "yes":
+                    flag=True
+                    break
+                else: continue
+            if flag: break
 
     else:
         print("Invalid Input")
